@@ -14,9 +14,8 @@ h2 , label {
     color: rgb(185, 192, 192);
 }
 
-h4{
-    color: brown;
-}
+/* 
+ */
 input{
     margin: 5px;
     padding:5px;
@@ -29,5 +28,5 @@ input{
     
     
     .hidden-fail-msg{
-        color: brown;
+        color: peachpuff;
     }

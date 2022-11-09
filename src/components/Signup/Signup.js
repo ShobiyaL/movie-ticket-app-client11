@@ -5,20 +5,23 @@ import './Signup.css';
 import { trySignup } from '../../services/SignupService';
 
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 
 function Signup(props) { 
-  const [signedUp, setSignedup] = useState({status:'', message: ''});
+  const [signedUp, setSignedup] = useState({status:false, message: ''});
+  const navigate = useNavigate();
   const handleSubmit = async (event) => { 
-    event.preventDefault();
-    const firstName = event.target[0].value;
-    const lastName = event.target[1].value;
-    const email = event.target[2].value;
-    const password = event.target[3].value;
-    console.log(firstName, lastName, email, password);
-    trySignup(firstName, lastName, email,password,setSignedup);
-  }
+  event.preventDefault();
+  const firstName = event.target[0].value;
+  const lastName = event.target[1].value;
+  const email = event.target[2].value;
+  const password = event.target[3].value;
+  console.log(firstName, lastName, email, password);
+  trySignup(firstName, lastName, email,password,setSignedup);
+  navigate('/')
+}
       
         return (
             <div className="signupbody">
@@ -61,7 +64,7 @@ function Signup(props) {
                           <button type="submit" className="btn btn-larger btn-block">
                           Sign up
                           </button>
-                          <h4 className = {signedUp.status}>{signedUp.message}</h4>
+                          <h3 className = {signedUp.status}>{signedUp.message}</h3>
                         </div>
                       </form>
                     </div>
