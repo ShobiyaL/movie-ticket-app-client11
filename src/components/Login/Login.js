@@ -5,20 +5,21 @@ import { fetchData, triggerLogIn } from '../../actions/actions';
 import { tryLogin } from '../../services/LoginServices';
 
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom'
+import { useLocation,useNavigate } from 'react-router-dom'
 
 function Login(props) {
   let location = useLocation();
   // const [userData, setUserData] = useState({ 'name': '', 'species': '' });
   const [logedIn, setLogedIn] = useState(false);
   
-  
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const email = event.target[0].value;
     const pass = event.target[1].value;
     const message = tryLogin(email, pass, props.setUserData);   
+    navigate('/');
   };
 
   return (
