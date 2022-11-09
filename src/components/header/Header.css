@@ -47,3 +47,11 @@ label {
   .header-li a:hover {
     background-color: #111;
   }
+
+  .postName {
+    cursor: pointer;
+  }
+
+  #cityForm-1 {
+    cursor: pointer;
+  }

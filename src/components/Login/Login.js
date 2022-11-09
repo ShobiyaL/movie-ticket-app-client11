@@ -9,6 +9,7 @@ import { useLocation,useNavigate } from 'react-router-dom'
 
 function Login(props) {
   let location = useLocation();
+  console.log(props);
   // const [userData, setUserData] = useState({ 'name': '', 'species': '' });
   const [logedIn, setLogedIn] = useState(false);
   

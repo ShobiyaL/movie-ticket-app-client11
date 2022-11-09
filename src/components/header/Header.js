@@ -5,11 +5,7 @@ import { Router, Route, NavLink } from 'react-router-dom';
 import { getAllCities } from '../../services/CommonServices';
 import { useState } from 'react';
 
-function filterLocation(event) {
-    let selectElement = document.querySelector('#c1');
-    let output = selectElement.value;
-    console.log(output);
-}
+
 
 export function Header(props) {
     const [cities, setCities] = useState(['allCities']);
@@ -24,6 +20,13 @@ export function Header(props) {
         setter({ 'loggedIn': false, 'userName': '', 'timeOut': '' });
     }
 
+    function filterLocation(event) {
+        let selectElement = document.querySelector('#cityForm-1');
+        let output = selectElement.value;
+        console.log(output);
+        props.setLocation(output);
+    }
+
     return (
         <div className="head">
             <body>
@@ -35,7 +38,7 @@ export function Header(props) {
                     <div className="headers-li-right">
                         <form name="PostName" onChange={filterLocation}>
                             <label for="language">Location</label>
-                            <select name="language" id="c1" onchange="PostName.submit()">
+                            <select name="language" id="cityForm-1" onchange="PostName.submit()">
                                 {cities.map((answer, i) => {
                                     if (answer != '')
                                         return (<option value={answer}>{answer}</option>)
