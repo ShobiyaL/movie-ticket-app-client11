@@ -5,26 +5,27 @@ import './Signup.css';
 import { trySignup } from '../../services/SignupService';
 
 import { useState } from 'react';
-const handleSubmit = async (event) => { 
-  event.preventDefault();
-  const firstName = event.target.form.first_name.value;
-  const lastName = event.target.form.last_name.value;
-  const email = event.target.form.email.value;
-  const password = event.target.form.password.value;
-  console.log(firstName, lastName, email, password);
-  trySignup(firstName, lastName, email,password);
-}
+
 
 
 function Signup(props) { 
-  const [signedUp, setSignedup] = useState({status:false, message: ''});
+  const [signedUp, setSignedup] = useState({status:'', message: ''});
+  const handleSubmit = async (event) => { 
+    event.preventDefault();
+    const firstName = event.target[0].value;
+    const lastName = event.target[1].value;
+    const email = event.target[2].value;
+    const password = event.target[3].value;
+    console.log(firstName, lastName, email, password);
+    trySignup(firstName, lastName, email,password,setSignedup);
+  }
       
         return (
             <div className="signupbody">
             <div id="signupform" className='tab-content'>
                 <div className="signupform tab-pane fade active in" id="signup">
                       <h2 className="text-uppercase text-center"> Sign Up for Free</h2>
-                      <form id="signup" onClick={handleSubmit}>
+                      <form id="signup" onSubmit={handleSubmit}>
                         <div className="row">
                           <div className="col-xs-12 col-sm-6">
                             <div className="form-group">
@@ -60,7 +61,7 @@ function Signup(props) {
                           <button type="submit" className="btn btn-larger btn-block">
                           Sign up
                           </button>
-                          <h4 className = 'hidden-msg'>{signedUp.message}</h4>
+                          <h4 className = {signedUp.status}>{signedUp.message}</h4>
                         </div>
                       </form>
                     </div>

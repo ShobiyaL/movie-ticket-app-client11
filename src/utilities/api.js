@@ -36,22 +36,29 @@ export const getData = async (url) => {
 };
 
 export const postData = async (url, body) => {
-    url = BASE_PATH + 'user/signin';
+    url = BASE_PATH + url;
     let value = {};
+    console.log(body);
    
     await axios
         .post(url, body)
         .then((response) => {
             console.log(response);
             console.log(response.data.obj);
-            if(response.data.obj) {
-                console.log(response.data.obj);
-                value = response.data.obj;
-            } else {
-                console.log(response.data.obj);
-                value = {'message': 'Auth failed'};
-            }
-        });
+            console.log(response.data);
+            console.log(response.data.obj);
+            // if(response.data.obj) {
+            //     console.log(response.data.obj);
+            //     value = response.data.obj;
+            // } else {
+            //     console.log(response.data.obj);
+            //     value = {'message': 'Auth failed'};
+            // }
+            value = response
+        }).catch(error => {
+            console.log('error');
+            value = {'data' : {'message': 'signup failed'}};
+        })
 
         return value;
 };

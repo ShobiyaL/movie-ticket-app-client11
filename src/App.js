@@ -16,6 +16,8 @@ import MovieScreen from './components/MovieScreen/MovieScreen';
 function App() {
   const [userData, setUserData] = useState({'loggedIn': false, 'userName': 'abc', 'timeOut': '' });
   console.log('ll',userData);
+  
+  
   return (
     <div className="app">
       <Router history ={history}>
@@ -23,10 +25,10 @@ function App() {
         <div className='container'>
         <Routes>
           <Route path='/' exact element={<Home/>} />
-          <Route path='/login'element={<Login/>} />
+          <Route path='/login'element={<Login setUserData={setUserData}/>} />
           <Route path='/signup'  element={<Signup/>} />
-          <Route path='/movie/:movieId' element={<MovieDetail/>} />
-          <Route path='/movieScreen' element={<MovieScreen/>} />
+          <Route path='/movie/:movieId' element={<MovieDetail />} />
+          <Route path='/movieScreen' element={<MovieScreen  />} />
           <Route path='*' element={<PageNotFound/>} />
         </Routes>
         </div>

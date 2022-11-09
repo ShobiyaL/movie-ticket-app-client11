@@ -22,3 +22,12 @@ input{
     padding:5px;
     width:100%;
 }
+
+.hidden-success-msg{
+        color: rgb(42, 165, 75);
+    }
+    
+    
+    .hidden-fail-msg{
+        color: brown;
+    }

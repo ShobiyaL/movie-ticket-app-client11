@@ -21,10 +21,11 @@ const MovieDetail = () => {
       dispatch(removeSelectedMovie());
     };
   }, [dispatch, movieId]);
-  
+
   const handleClick=(data)=>{
-   console.log(data);
-  }
+    console.log(data);
+   }
+
   return (
     <div className="movie-section">
       {Object.keys(data).length === 0 ? (

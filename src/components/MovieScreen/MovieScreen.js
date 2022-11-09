@@ -1,6 +1,7 @@
 import React from 'react'
 
-const MovieScreen = (props) => {
+const MovieScreen = () => {
+    
   return (
     <div>MovieScreen</div>
   )
