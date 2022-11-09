@@ -18,7 +18,8 @@ function Login(props) {
     event.preventDefault();
     const email = event.target[0].value;
     const pass = event.target[1].value;
-    const message = tryLogin(email, pass, props.setUserData);   
+    const message = tryLogin(email, pass, props.setUserData); 
+      
     navigate('/');
   };
 

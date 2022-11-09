@@ -15,9 +15,7 @@ import { ShowList } from './components/ShowList/ShowList';
 
 
 function App() {
-  const [userData, setUserData] = useState({'loggedIn': false, 'userName': 'abc', 'timeOut': '' });
-  console.log('ll',userData);
-  
+  const [userData, setUserData] = useState({'loggedIn': false, 'userName': 'abc', 'timeOut': '' });  
   
   return (
     <div className="app">
