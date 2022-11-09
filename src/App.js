@@ -10,6 +10,7 @@ import PageNotFound from './components/pageNotFound/PageNotFound';
 import Footer from './components/footer/Footer';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
+import MovieScreen from './components/MovieScreen/MovieScreen';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path='/login'element={<Login/>} />
           <Route path='/signup'  element={<Signup/>} />
           <Route path='/movie/:movieId' element={<MovieDetail/>} />
+          <Route path='/movieScreen' element={<MovieScreen/>} />
           <Route path='*' element={<PageNotFound/>} />
         </Routes>
         </div>

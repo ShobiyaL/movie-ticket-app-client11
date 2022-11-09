@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./movieDetail.scss";
-import { useParams } from "react-router";
+import { Link } from "react-router-dom";
+import { useParams,useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchAsyncMovieDetail,
@@ -9,6 +10,7 @@ import {
 } from "../../features/movies/movieSlice";
 
 const MovieDetail = () => {
+  const navigate = useNavigate();
   const { movieId } = useParams();
   const dispatch = useDispatch();
   const data = useSelector(getSelectedMovie);
@@ -19,6 +21,10 @@ const MovieDetail = () => {
       dispatch(removeSelectedMovie());
     };
   }, [dispatch, movieId]);
+  
+  const handleClick=(data)=>{
+   console.log(data);
+  }
   return (
     <div className="movie-section">
       {Object.keys(data).length === 0 ? (
@@ -46,7 +52,9 @@ const MovieDetail = () => {
                 <span>Languages</span>
                 <span>{data.movie.language}</span>
               </div>
-              <button style={{color:"black",fontSize:"17px",padding:"5px",marginTop:"20px",marginLeft:"20px"}}>Book Tickets</button>
+              <Link to='/movieScreen'> <button onClick={()=>handleClick(data.movie.title)}
+               style={{color:"black",fontSize:"17px",padding:"5px",marginTop:"20px",marginLeft:"20px"}}>Book Tickets</button>
+            </Link>
             </div>
           </div>
           <div className="section-right">
