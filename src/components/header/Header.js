@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Header.css'
 import { Router, Route, NavLink } from 'react-router-dom';
-import Login from '../Login/Login';
-import checkLogedIn from '../AccountControl/AccountController';
-
 
 class Header extends Component {
  render() {

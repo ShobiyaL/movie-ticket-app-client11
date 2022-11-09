@@ -11,6 +11,7 @@ import Footer from './components/footer/Footer';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import MovieScreen from './components/MovieScreen/MovieScreen';
+import { ShowList } from './components/ShowList/ShowList';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path='/movie/:movieId' element={<MovieDetail />} />
           <Route path='/movieScreen' element={<MovieScreen  />} />
           <Route path='*' element={<PageNotFound/>} />
+          <Route path='/showlist' element={<ShowList/>} />
         </Routes>
         </div>
         <Footer/>
