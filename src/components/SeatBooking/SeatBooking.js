@@ -1,28 +1,38 @@
 import './SeatBooking.scss';
+
+import { useState } from 'react';
+import { Summary } from '../Summary/Summary';
+
+function BookSeats(seatNumbers, setSeastss, setSelectedSeats) {
+
+    console.log('f', seatNumbers);
+    setSeastss(seatNumbers);
+    setSelectedSeats(true);
+
+}
+
 export default function SeatBooking() {
 
-    // $('.cinema-seats .seat').on('click', function() {
-    //     $(this).toggleClass('active');
-    //   });
-
-    document.getElementsByClassName("seat").onclick = function (e) {
-        console.log(e);
-        myFunction()
-    };
-
-    function myFunction(value) {
-        console.log(value);
-        //   document.getElementById("demo").innerHTML = document.getElementById("demo2").innerHTML.className;
-    }
+    const [seatss, setSeastss] = useState([]);
+    const [isSeatsSelected, setSelectedSeats] = useState(false);
+    let seatNumbers = [];
 
     let state = {
         active: false,
     }
+
     function toggleClass(e) {
-        console.log(e.target.className);
-        console.log(document.getElementsByClassName('b1'));
-        // document.getElementsByClassName('b1').style.color = 'green';
-        document.getElementById('b1').className = 'booked';
+        // setSeatss.append(e.target.id);
+        console.log(e.target.id);
+        if (seatNumbers.includes(e.target.id)) {
+            seatNumbers.pop(e.target.id);
+        } else {
+            seatNumbers.push(e.target.id);
+        }
+
+        console.log(seatNumbers)
+
+        document.getElementById(e.target.id).className = document.getElementById(e.target.id).className + ' booked';
         console.log(state.active)
         state = ({
             active: !state.active,
@@ -30,165 +40,144 @@ export default function SeatBooking() {
     }
 
     let seats = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
-    let c =1;
-    let seat = 'seat';
+    let c = 0;
     return (
         <>
-            <div className='screen-1'> screen</div>
-            <div className="theatre">
+            {!isSeatsSelected ?
+                <div className='hall'>
+                    <div className='screen-1'> screen</div>
+                    <div className="theatre">
 
 
-                <div className="cinema-seats left">
-                    <div className="cinema-row row-1">
-                        {seats.map((answer, i) => {
-                            if (answer != '')
-                                return (<div className='seat' id={`${answer}${c}`} onClick={toggleClass.bind(this)}>{answer}{c}</div>)
-                        })}
+                        <div className="cinema-seats left">
+                            <div className="cinema-row row-1">
+                                {c++}
+                                {seats.map((answer, i) => {
+                                    if (answer != '')
+                                        return (<div className='seat' id={`${answer}${c}`} onClick={toggleClass.bind(this)}>{answer}{c}</div>)
+                                })}
 
-                        {/* <div className="seat" onClick={toggleClass.bind(this)}>ddd</div>
-                        <div className="seat">s2</div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div> */}
+                            </div>
+
+                            <div className="cinema-row row-2">
+                                {c++}
+                                {seats.map((answer, i) => {
+                                    if (answer != '')
+                                        return (<div className='seat' id={`${answer}${c}`} onClick={toggleClass.bind(this)}>{answer}{c}</div>)
+                                })}
+                            </div>
+
+                            <div className="cinema-row row-3">
+                                {c++}
+                                {seats.map((answer, i) => {
+                                    if (answer != '')
+                                        return (<div className='seat' id={`${answer}${c}`} onClick={toggleClass.bind(this)}>{answer}{c}</div>)
+                                })}
+                            </div>
+
+                            <div className="cinema-row row-4">
+                                {c++}
+                                {seats.map((answer, i) => {
+                                    if (answer != '')
+                                        return (<div className='seat' id={`${answer}${c}`} onClick={toggleClass.bind(this)}>{answer}{c}</div>)
+                                })}
+                            </div>
+
+                            <div className="cinema-row row-5">
+                                {c++}
+                                {seats.map((answer, i) => {
+                                    if (answer != '')
+                                        return (<div className='seat' id={`${answer}${c}`} onClick={toggleClass.bind(this)}>{answer}{c}</div>)
+                                })}
+                            </div>
+
+                            <div className="cinema-row row-6">
+                                {c++}
+                                {seats.map((answer, i) => {
+                                    if (answer != '')
+                                        return (<div className='seat' id={`${answer}${c}`} onClick={toggleClass.bind(this)}>{answer}{c}</div>)
+                                })}
+                            </div>
+
+                            <div className="cinema-row row-7">
+                                {c++}
+                                {seats.map((answer, i) => {
+                                    if (answer != '')
+                                        return (<div className='seat' id={`${answer}${c}`} onClick={toggleClass.bind(this)}>{answer}{c}</div>)
+                                })}
+                            </div>
+                        </div>
+
+
+                        <div className="cinema-seats right">
+                            <div className="cinema-row row-1">
+                                {c++}
+                                {seats.map((answer, i) => {
+                                    if (answer != '')
+                                        return (<div className='seat' id={`${answer}${c}`} onClick={toggleClass.bind(this)}>{answer}{c}</div>)
+                                })}
+                            </div>
+
+                            <div className="cinema-row row-2">
+                                {c++}
+                                {seats.map((answer, i) => {
+                                    if (answer != '')
+                                        return (<div className='seat' id={`${answer}${c}`} onClick={toggleClass.bind(this)}>{answer}{c}</div>)
+                                })}
+                            </div>
+
+                            <div className="cinema-row row-3">
+                                {c++}
+                                {seats.map((answer, i) => {
+                                    if (answer != '')
+                                        return (<div className='seat' id={`${answer}${c}`} onClick={toggleClass.bind(this)}>{answer}{c}</div>)
+                                })}
+                            </div>
+
+                            <div className="cinema-row row-4">
+                                {c++}
+                                {seats.map((answer, i) => {
+                                    if (answer != '')
+                                        return (<div className='seat' id={`${answer}${c}`} onClick={toggleClass.bind(this)}>{answer}{c}</div>)
+                                })}
+                            </div>
+
+                            <div className="cinema-row row-5">
+                                {c++}
+                                {seats.map((answer, i) => {
+                                    if (answer != '')
+                                        return (<div className='seat' id={`${answer}${c}`} onClick={toggleClass.bind(this)}>{answer}{c}</div>)
+                                })}
+                            </div>
+
+                            <div className="cinema-row row-6">
+                                {c++}
+                                {seats.map((answer, i) => {
+                                    if (answer != '')
+                                        return (<div className='seat' id={`${answer}${c}`} onClick={toggleClass.bind(this)}>{answer}{c}</div>)
+                                })}
+                            </div>
+
+                            <div className="cinema-row row-7">
+                                {c++}
+                                {seats.map((answer, i) => {
+                                    if (answer != '')
+                                        return (<div className='seat' id={`${answer}${c}`} onClick={toggleClass.bind(this)}>{answer}{c}</div>)
+                                })}
+                            </div>
+                        </div>
+
+
                     </div>
-
-                    <div className="cinema-row row-2">
-                        <div className="seat booked"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                    </div>
-
-                    <div className="cinema-row row-3">
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                    </div>
-
-                    <div className="cinema-row row-4">
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                    </div>
-
-                    <div className="cinema-row row-5">
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                    </div>
-
-                    <div className="cinema-row row-6">
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                    </div>
-
-                    <div className="cinema-row row-7">
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                    </div>
-                </div>
-
-
-                <div className="cinema-seats right">
-                    <div className="cinema-row row-1">
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                    </div>
-
-                    <div className="cinema-row row-2">
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                    </div>
-
-                    <div className="cinema-row row-3">
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                    </div>
-
-                    <div className="cinema-row row-4">
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                    </div>
-
-                    <div className="cinema-row row-5">
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                    </div>
-
-                    <div className="cinema-row row-6">
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                    </div>
-
-                    <div className="cinema-row row-7">
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
+                    <div>
+                        <button onClick={() => BookSeats(seatNumbers, setSeastss, setSelectedSeats)}>Book</button>;
                     </div>
                 </div>
-
-            </div>
+                :
+                <>
+                <Summary seats={seatss}/>
+                </>
+            }
         </>
     );
 }
