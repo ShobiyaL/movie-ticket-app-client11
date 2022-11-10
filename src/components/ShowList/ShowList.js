@@ -1,4 +1,7 @@
 import './ShowList.css';
+import { useNavigate } from "react-router-dom";
+
+import { Link, NavLink } from "react-router-dom";
 export function ShowList(props) {
     console.log(props);
     var today = new Date();
@@ -11,6 +14,14 @@ export function ShowList(props) {
     var selectedMonthName = months[mm - 1];
 
     let dates = [dd, Number( dd) + 1,Number( dd)  + 2];
+
+function Divert() {
+    console.log('hhh');
+    const navigate = useNavigate();
+    navigate('/bookl');
+
+}
+
 
     function getDate() {
         var today = new Date();
@@ -50,42 +61,43 @@ export function ShowList(props) {
                 </div>
                 <div className="show-detail">
                     <div className="show-time pills">
-                        <div className='time-card'>
-                            5.00pm
-
+                    <NavLink exact to={{ pathname: "/book" }}> 
+                    <div className='time-card' onClick={Divert}>
+                            9.00am
                         </div>
-
+              </NavLink>
+                       
                     </div>
                     <div className="show-time pills">
-                        <div className='time-card'>
-
+                    <NavLink exact to={{ pathname: "/book" }}> 
+                    <div className='time-card' onClick={Divert}>
+                            1.00am
                         </div>
+              </NavLink>
                     </div>
                     <div className="show-time pills">
-                        <div className='time-card'>
-
+                    <NavLink exact to={{ pathname: "/book" }}> 
+                    <div className='time-card' onClick={Divert}>
+                            4.00pm
                         </div>
+              </NavLink>
                     </div>
                     <div className="show-time pills">
-                        <div className='time-card'>
-
+                    <NavLink exact to={{ pathname: "/book" }}> 
+                    <div className='time-card' onClick={Divert}>
+                            7.00am
                         </div>
+              </NavLink>
                     </div>
                     <div className="show-time pills">
-                        <div className='time-card'>
-
+                    <NavLink exact to={{ pathname: "/book" }}> 
+                    <div className='time-card' onClick={Divert}>
+                            10.00am
                         </div>
+              </NavLink>
                     </div>
-                    <div className="show-time pills">
-                        <div className='time-card'>
-
-                        </div>
-                    </div>
-                    <div className="show-time pills">
-                        <div className='time-card'>
-
-                        </div>
-                    </div>
+                    
+                
                 </div>
 
             </div>

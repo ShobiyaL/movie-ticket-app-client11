@@ -13,10 +13,12 @@ import Signup from './components/Signup/Signup';
 import MovieScreen from './components/MovieScreen/MovieScreen';
 import { ShowList } from './components/ShowList/ShowList';
 import SeatBooking from './components/SeatBooking/SeatBooking';
+import { Status } from './components/Status/Status';
 
 
 function App() {
   const [userData, setUserData] = useState({'loggedIn': false, 'userName': 'abc', 'timeOut': '' }); 
+  const [shows, setShows] = useState({});
 
   const [location, setLocation] = useState(''); 
    
@@ -32,8 +34,9 @@ function App() {
           <Route path='/movie/:movieId' element={<MovieDetail  location={location}/>} />
           <Route path='/movieScreen' element={<MovieScreen  />} />
           <Route path='*' element={<PageNotFound/>} />
-          <Route path='/showlist' element={<ShowList/>} />
+          <Route path='/showlist' element={<ShowList />} />
           <Route path='/book' element={<SeatBooking/>} />
+          <Route path='/status' element={<Status/>} />
         </Routes>
         </div>
         <Footer/>

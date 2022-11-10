@@ -1,4 +1,6 @@
 import './Summary.scss';
+
+import { Link, NavLink } from "react-router-dom";
 export function Summary(props) {
     return (
         <>
@@ -35,7 +37,10 @@ export function Summary(props) {
                     <div>
 
                     </div>
-                    <button class='lbtn'>Book</button>
+                    <NavLink exact to={{ pathname: "/status" }}> 
+                    <button class='lbtn' >Book</button>
+              </NavLink>
+                    
 
                 </div>
             </div>
