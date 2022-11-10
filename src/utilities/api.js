@@ -14,7 +14,7 @@ const requestOptions = {
 
 
 export const getData = async (url) => {
-    url = BASE_PATH + 'api/user/signin';
+    url = BASE_PATH + url;
     // const response = await fetch(url, requestOptions);
     // console.log(response);
 
@@ -25,12 +25,18 @@ export const getData = async (url) => {
 
     // const data = await response.json();
     // return data;
-    axios
-        .post(url, { "emailId": 'person4@gmail.com', "password": '456pqrs123' })
+    let val;
+    await axios
+        .get(url)
         .then((response) => {
             console.log(response);
-            return response.json();
+            val = response;
+        }).catch(e=> {
+            console.log('error');
         });
+
+
+        return val;
 
 
 };

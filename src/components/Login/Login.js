@@ -9,6 +9,7 @@ import { useLocation,useNavigate } from 'react-router-dom'
 
 function Login(props) {
   let location = useLocation();
+  console.log(props);
   // const [userData, setUserData] = useState({ 'name': '', 'species': '' });
   const [logedIn, setLogedIn] = useState(false);
   
@@ -18,7 +19,8 @@ function Login(props) {
     event.preventDefault();
     const email = event.target[0].value;
     const pass = event.target[1].value;
-    const message = tryLogin(email, pass, props.setUserData);   
+    const message = tryLogin(email, pass, props.setUserData); 
+      
     navigate('/');
   };
 

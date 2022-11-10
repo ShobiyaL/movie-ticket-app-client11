@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./movieDetail.scss";
-import { Link } from "react-router-dom";
-import { useParams,useNavigate } from "react-router";
+import { Link, NavLink } from "react-router-dom";
+import { useParams, useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchAsyncMovieDetail,
@@ -9,7 +9,10 @@ import {
   removeSelectedMovie,
 } from "../../features/movies/movieSlice";
 
-const MovieDetail = () => {
+import { useLocation } from 'react-router-dom'
+
+export function MovieDetail(props) {
+
   const navigate = useNavigate();
   const { movieId } = useParams();
   const dispatch = useDispatch();
@@ -22,9 +25,9 @@ const MovieDetail = () => {
     };
   }, [dispatch, movieId]);
 
-  const handleClick=(data)=>{
-    console.log(data);
-   }
+  const handleClick = (data) => {
+    console.log(data, props.location);
+  }
 
   return (
     <div className="movie-section">
@@ -34,8 +37,6 @@ const MovieDetail = () => {
         <>
           <div className="section-left">
             <div className="movie-title">{data.movie.title}</div>
-            
-            
             <div className="movie-info">
               <div>
                 <span>Director</span>
@@ -53,9 +54,9 @@ const MovieDetail = () => {
                 <span>Languages</span>
                 <span>{data.movie.language}</span>
               </div>
-              <Link to='/movieScreen'> <button onClick={()=>handleClick(data.movie.title)}
-               style={{color:"black",fontSize:"17px",padding:"5px",marginTop:"20px",marginLeft:"20px"}}>Book Tickets</button>
-            </Link>
+              <NavLink exact to={{ pathname: "/showlist", aboutProps: { 'movieName': data.movie.title } }}> <button onClick={() => handleClick(data.movie.title)}
+                style={{ color: "black", fontSize: "17px", padding: "5px", marginTop: "20px", marginLeft: "20px" }}>Book Tickets</button>
+              </NavLink>
             </div>
           </div>
           <div className="section-right">

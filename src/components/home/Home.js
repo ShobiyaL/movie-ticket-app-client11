@@ -4,12 +4,13 @@ import { useDispatch } from 'react-redux';
 import {  fetchAsyncMovies } from '../../features/movies/movieSlice';
 
 
-const Home = () => {
+const Home = (props) => {
+  console.log(props.location);
   const dispatch = useDispatch();
   //making the api call useEffect
     useEffect(()=>{
-      dispatch(fetchAsyncMovies());
-    },[dispatch])
+      dispatch(fetchAsyncMovies(props.location));
+    },[dispatch, props.location])
   return (
     <>
       <div className="banner-img">
