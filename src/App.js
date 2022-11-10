@@ -21,6 +21,8 @@ function App() {
   const [shows, setShows] = useState({});
 
   const [location, setLocation] = useState(''); 
+
+  const [movie, setMovie] = useState();
    
   return (
     <div className="app">
@@ -31,11 +33,11 @@ function App() {
           <Route path='/' exact element={<Home location={location}/>} />
           <Route path='/login'element={<Login setUserData={setUserData}/>} />
           <Route path='/signup'  element={<Signup/>} />
-          <Route path='/movie/:movieId' element={<MovieDetail  location={location}/>} />
+          <Route path='/movie/:movieId' element={<MovieDetail  location={location} setMovie={setMovie}/>} />
           <Route path='/movieScreen' element={<MovieScreen  />} />
           <Route path='*' element={<PageNotFound/>} />
-          <Route path='/showlist' element={<ShowList />} />
-          <Route path='/book' element={<SeatBooking/>} />
+          <Route path='/showlist' element={<ShowList movie={movie} />} />
+          <Route path='/book' element={<SeatBooking movie = {movie}/>} />
           <Route path='/status' element={<Status/>} />
         </Routes>
         </div>

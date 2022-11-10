@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { Link, NavLink } from "react-router-dom";
 export function ShowList(props) {
-    console.log(props);
+    console.log(props.movie);
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -23,28 +23,11 @@ function Divert() {
 }
 
 
-    function getDate() {
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        var yyyy = today.getFullYear();
-
-        today = mm + '/' + dd + '/' + yyyy;
-        document.write(today);
-
-        return (
-            <>
-                <li>today</li>
-                <li>today</li>
-                <li>today</li>
-            </>
-        )
-    }
 
     return (
         <div>
             <div className='movie-title'>
-                BLACK PANTHER
+               {props.movie['title']}
             </div>
             <div className='time-sheet'>
                 <div className='month'>{selectedMonthName}</div>

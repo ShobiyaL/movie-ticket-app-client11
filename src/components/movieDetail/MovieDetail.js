@@ -29,6 +29,8 @@ export function MovieDetail(props) {
     console.log(data, props.location);
   }
 
+ 
+
   return (
     <div className="movie-section">
       {Object.keys(data).length === 0 ? (
@@ -36,7 +38,7 @@ export function MovieDetail(props) {
       ) : (
         <>
           <div className="section-left">
-            <div className="movie-title">{data.movie.title}</div>
+            <div className="movie-title">{data.movie.title}{ props.setMovie(data.movie)}</div>
             <div className="movie-info">
               <div>
                 <span>Director</span>

@@ -11,7 +11,7 @@ function BookSeats(seatNumbers, setSeastss, setSelectedSeats) {
 
 }
 
-export default function SeatBooking() {
+export default function SeatBooking(props) {
 
     const [seatss, setSeastss] = useState([]);
     const [isSeatsSelected, setSelectedSeats] = useState(false);
@@ -175,7 +175,7 @@ export default function SeatBooking() {
                 </div>
                 :
                 <>
-                <Summary seats={seatss}/>
+                <Summary seats={seatss} movie={props.movie}/>
                 </>
             }
         </>

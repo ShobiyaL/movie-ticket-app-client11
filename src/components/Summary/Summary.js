@@ -2,27 +2,25 @@ import './Summary.scss';
 
 import { Link, NavLink } from "react-router-dom";
 export function Summary(props) {
+    console.log(props);
     return (
         <>
             <div className="summary">
                 <div class="cardWrap">
                     <div class="card cardLeft">
-                        <h1>Startup <span>Cinema</span></h1>
+                        <h1><span>Cinema</span></h1>
                         <div class="title">
-                            <h2>How I met your Mother</h2>
+                            <h2>{props.movie['title']}</h2>
                             <span>movie</span>
                         </div>
                         <div class="name">
-                            <h2>Vladimir Kudinov</h2>
-                            <span>name</span>
+                            <h2>{props.movie['director']}</h2>
+                            <span>Director</span>
                         </div>
-                        <div class="seat">
-                            <h2>156</h2>
-                            <span>seat</span>
-                        </div>
+                       
                         <div class="time">
-                            <h2>12:00</h2>
-                            <span>time</span>
+                            <h2>{props.movie['duration']}</h2>
+                            <span>Duration</span>
                         </div>
 
                     </div>
