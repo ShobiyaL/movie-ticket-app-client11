@@ -5,13 +5,13 @@ import './Signup.css';
 import { trySignup } from '../../services/SignupService';
 
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 
 
 
 function Signup(props) { 
   const [signedUp, setSignedup] = useState({status:false, message: ''});
-  const navigate = useNavigate();
+
   const handleSubmit = async (event) => { 
   event.preventDefault();
   const firstName = event.target[0].value;
@@ -20,7 +20,7 @@ function Signup(props) {
   const password = event.target[3].value;
   console.log(firstName, lastName, email, password);
   trySignup(firstName, lastName, email,password,setSignedup);
-  navigate('/')
+  
 }
       
         return (

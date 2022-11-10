@@ -1,10 +1,11 @@
 #loginform {
 display: flex;
 justify-content: center;
+
 }
 
 btn {
-	border-radius: 0
+	border-radius: 0;
     
   
 }
@@ -60,6 +61,7 @@ div#form {
 	background-size: cover;
 	-o-background-size: cover;
   min-height:100%;
+  
 
 }
 
@@ -77,6 +79,8 @@ div#form {
 	margin: 20px 0 20px 0;
     width: 428px;
     height: auto;
+	border-radius: 4px;
+	box-shadow: #bbb;
 }
  @media (min-width: 768px) {
 #userform {

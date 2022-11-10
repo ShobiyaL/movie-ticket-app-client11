@@ -36,9 +36,9 @@ export async function trySignup(firstName, lastName, email, password, setSignedu
         //     console.log('passed');
         //     history.push('/home');
         // }
-        setSignedup({status:'hidden-success-msg', message: 'signed up successfully'});
+        setSignedup({status:'hidden-success-msg', message: 'signed up successfully click '});
         await timeout(2000);
-        history.push('/')
+        history.push('/login')
         // setLogedIn(true);
     }
     console.log(results);
